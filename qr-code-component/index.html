@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | QR code component</title>
+</head>
+
+<body>
+    <div class="card">
+        <img src="/images/image-qr-code.png" alt="" class="code">
+        <div class="card-content">
+            <h3>Improve your front-end skills by building projects</h3>
+            <p> Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+        </div>
+
+    </div>
+
+
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">huyuehhsuan</a>.
+    </div>
+    <script></script>
+</body>
+
+</html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+     :root {
+        --White: hsl(0, 0%, 100%);
+        --Light-Grey: hsl(212, 45%, 89%);
+        --Grayish-blue: hsl(220, 15%, 55%);
+        --Dark-blue: hsl(218, 44%, 22%)
+    }
+    
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    .attribution a {
+        color: hsl(228, 45%, 44%);
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style-type: none;
+        text-decoration: none;
+    }
+    
+    body {
+        font-family: 'Outfit', sans-serif;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--Light-Grey);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 15px;
+    }
+    
+    .card {
+        max-width: 360px;
+        background-color: var(--White);
+        padding: 1rem;
+        text-align: center;
+        border-radius: 1rem;
+        box-shadow: 0 4px 10px var(--Light-Grey);
+    }
+    
+    .code {
+        width: 100%;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+    
+    .card-content {
+        padding: .8rem;
+    }
+    
+    .card-content h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 1rem 0;
+        color: var(--Dark-blue);
+    }
+    
+    .card-content p {
+        color: #999;
+        padding: .8rem;
+    }
+</style>
