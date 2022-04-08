@@ -33,7 +33,7 @@
         </div>
         <div class="card-footer">
             <img src="/nft-preview-card-component-main/images/image-avatar.png" alt="">
-            <p>Creation of <span>Jules Wyvern</span></p>
+            <p>Creation of <a>Jules Wyvern</a></p>
         </div>
     </div>
 
@@ -132,6 +132,10 @@
         margin: 1.2rem 0;
     }
     
+    .card-body h3:hover {
+        cursor: pointer;
+    }
+    
     .card-body p {
         color: var(--Soft-blue);
         font-size: 1.3rem;
@@ -183,7 +187,11 @@
         border: 1px solid var(--White);
     }
     
-    .card-footer span {
+    .card-footer a {
         color: var(--White);
+    }
+    
+    .card-footer a:hover {
+        cursor: pointer;
     }
 </style>
