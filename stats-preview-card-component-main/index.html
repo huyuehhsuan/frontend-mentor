@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Stats preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-content">
+            <div>
+                <h3>Get <span>insights</span> that help your business grow.</h3>
+                <p> Discover the benefits of data analytics and make better decisions regarding revenue, customer experience, and overall efficiency.</p>
+            </div>
+
+            <div class="flex">
+                <div>
+                    <h4> 10k+</h4>
+                    <p>companies</p>
+                </div>
+                <div>
+                    <h4>314</h4>
+                    <p>templates</p>
+                </div>
+                <div>
+                    <h4>12m+</h4>
+                    <p>queries</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-img">
+            <img src="/stats-preview-card-component-main/images/image-header-desktop.jpg" alt="">
+            <div class="mask"></div>
+        </div>
+    </div>
+
+
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">huyuehhsuan</a>.
+    </div>
+</body>
+
+</html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+     :root {
+        --White: hsl(0, 0%, 100%);
+        --Very-dark-blue: hsl(233, 47%, 7%);
+        --Dark-desaturated-blue: hsl(244, 38%, 16%);
+        --Soft-violet: hsl(277, 64%, 61%);
+        --Slightly-main-paragraph: hsla(0, 0%, 100%, 0.75);
+        --Slightly-stat-headings: hsla(0, 0%, 100%, 0.6);
+    }
+    
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    .attribution a {
+        color: hsl(228, 45%, 44%);
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style-type: none;
+        text-decoration: none;
+    }
+    
+    body {
+        font-family: 'Lexend Deca', sans-serif;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--Very-dark-blue);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 15px;
+    }
+    
+    .card {
+        max-width: 800px;
+        background-color: var(--Dark-desaturated-blue);
+        display: flex;
+    }
+    
+    .card-content {
+        width: 50%;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .card-content h3 {
+        color: var(--White);
+        font-weight: 700;
+        font-size: 24px;
+        margin-bottom: 1.5rem;
+    }
+    
+    span {
+        color: var(--Soft-violet);
+    }
+    
+    .card-content p {
+        color: var(--Slightly-main-paragraph);
+        margin-bottom: 1rem;
+        font-size: 12px;
+        width: 95%;
+    }
+    
+    .flex {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 30px;
+    }
+    
+    .flex h4 {
+        color: var(--White);
+    }
+    
+    .flex p {
+        color: var(--Slightly-main-paragraph);
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+    
+    .card-img {
+        width: 50%;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .card-img img {
+        width: 100%;
+    }
+    
+    .card-img .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(79, 12, 106, 0.952);
+        opacity: .6;
+    }
+    
+    @media (max-width: 576px) {
+        .card {
+            flex-direction: column-reverse;
+        }
+        .card-content {
+            width: 100%;
+        }
+        .card-img {
+            width: 100%;
+        }
+    }
+</style>
