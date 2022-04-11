@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Profile card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+         :root {
+            --Dark-cyan: hsl(185, 75%, 39%);
+            --Very-dark-desaturated-blue: hsl(229, 23%, 23%);
+            --Dark-grayish-blue: hsl(227, 10%, 46%);
+            --Dark-gray: hsl(0, 0%, 59%)
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        
+        body {
+            font-family: 'Kumbh Sans', sans-serif;
+            width: 100%;
+            height: 100vh;
+            background-image: url(/profile-card-component-main/images/bg-pattern-top.svg), url(/profile-card-component-main/images/bg-pattern-bottom.svg);
+            background-repeat: no-repeat, no-repeat;
+            background-position: right 50vw bottom 50vh, left 80vh top 60vh;
+            background-color: var(--Dark-cyan);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 18px;
+        }
+        
+        .card {
+            border-radius: 1rem;
+            overflow: hidden;
+            background-color: #fff;
+            text-align: center;
+        }
+        
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -62px;
+        }
+        
+        .card-content img {
+            width: 120px;
+            height: 120px;
+            border-radius: 100%;
+            border: 4px solid #fff;
+        }
+        
+        .card-content h1 {
+            font-weight: 700;
+            font-size: 20px;
+            display: inline-block;
+            margin: .5rem 0;
+        }
+        
+        .card-content span {
+            color: var(--Dark-grayish-blue);
+        }
+        
+        .card-content p {
+            color: var(--Dark-grayish-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-footer {
+            padding: 1.5rem 1rem;
+            display: flex;
+            justify-content: space-evenly;
+            border-top: 1px solid rgb(230, 230, 230);
+        }
+        
+        .card-footer h3 {
+            font-weight: 700;
+        }
+        
+        .card-footer p {
+            color: var(--Dark-grayish-blue);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <div class="card-header">
+            <img src="/profile-card-component-main/images/bg-pattern-card.svg" alt="">
+        </div>
+        <div class="card-content">
+            <img src="/profile-card-component-main/images/image-victor.jpg" alt="">
+            <div>
+                <h1>Victor Crest</h1> <span>26</span></div>
+
+            <p>London</p>
+        </div>
+        <div class="card-footer">
+            <div>
+                <h3>80K</h3>
+                <p>Followers</p>
+            </div>
+            <div>
+                <h3>803K</h3>
+                <p>Likes</p>
+            </div>
+            <div>
+                <h3>1.4K </h3>
+                <p>Photos</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">huyuehhsuan</a>.
+    </div>
+</body>
+
+</html>
