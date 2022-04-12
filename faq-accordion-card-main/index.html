@@ -131,7 +131,8 @@
         .answer {
             visibility: hidden;
             opacity: 0;
-            transition: all .3s ;
+            transition: all .3s;
+            width: 90%;
         }
         
         .item.active .answer {
@@ -146,6 +147,39 @@
         
         .item.active .arrow {
             transform: rotate(180deg);
+        }
+        
+        @media (max-width: 576px) {
+            .card {
+                max-width: 350px;
+                flex-direction: column;
+                overflow: unset;
+            }
+            .card-img {
+                width: 100%;
+            }
+            .woman {
+                top: -22%;
+                left: 40%;
+                position: absolute;
+                width: 70%;
+            }
+            .pattern {
+                top: -25%;
+                left: 15%;
+                width: 70%;
+            }
+            .box {
+                width: 30%;
+                top: -10%;
+                left: 10%;
+            }
+            .card-content {
+                padding: 7rem .2rem 1rem .2rem;
+            }
+            .card-content h1 {
+                text-align: center;
+            }
         }
     </style>
 </head>
