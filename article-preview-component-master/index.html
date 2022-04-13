@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Frontend Mentor | Article preview component</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+         :root {
+            --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+            --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+            --Grayish-Blue: hsl(212, 23%, 69%);
+            --Light-Grayish-Blue: hsl(210, 46%, 95%);
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--Light-Grayish-Blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 13px;
+        }
+        
+        .card {
+            max-width: 880px;
+            background-color: #fff;
+            display: flex;
+            border-radius: 1rem;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, .1);
+        }
+        
+        .card .card-img {
+            width: 100%;
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .card .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 2rem 3rem;
+        }
+        
+        .card-content h1 {
+            color: var(--Very-Dark-Grayish-Blue);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .card-content>p {
+            color: var(--Desaturated-Dark-Blue);
+            margin: 1rem 0;
+        }
+        
+        .author {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .author>img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        
+        .author .name {
+            color: var(--Very-Dark-Grayish-Blue);
+            font-weight: 700;
+            margin-bottom: .3rem;
+        }
+        
+        .author .date {
+            color: var(--Grayish-Blue);
+        }
+        
+        .share {
+            background-color: var(--Very-Dark-Grayish-Blue);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            margin-left: auto;
+            cursor: pointer;
+        }
+        
+        .share i {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        
+        .social-box {
+            opacity: 0;
+            visibility: hidden;
+            padding: .8rem 2rem;
+            border-radius: 6px;
+            background-color: var(--Very-Dark-Grayish-Blue);
+            position: absolute;
+            top: -60px;
+            right: -100px;
+            transition: .3s;
+        }
+        
+        .social-box.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .social-box::after {
+            position: absolute;
+            display: block;
+            content: "";
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-width: 10px;
+            border-style: solid;
+            border-top-color: var(--Very-Dark-Grayish-Blue);
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        }
+        
+        .social-box i {
+            color: #fff;
+            margin-right: 1rem;
+            font-size: 1rem;
+        }
+        
+        .social-box span {
+            color: var(--Light-Grayish-Blue);
+            letter-spacing: .3rem;
+            margin-right: 1rem;
+        }
+        
+        .display-none {
+            display: none;
+        }
+        
+        .mobile-active {
+            display: none;
+        }
+        
+        @media (max-width: 576px) {
+            .card {
+                flex-direction: column;
+                max-width: 350px;
+            }
+            .card .card-img {
+                border-top-right-radius: 1rem;
+                border-bottom-left-radius: 0;
+                height: 220px;
+            }
+            .card-content {
+                padding: 2.5rem 3rem 1rem 3rem;
+            }
+            .card-content h1 {
+                font-size: 1rem;
+            }
+            .author {
+                padding-top: 2rem;
+            }
+            .share {
+                background-color: var(--Light-Grayish-Blue);
+            }
+            .share i {
+                color: var(--Very-Dark-Grayish-Blue);
+            }
+            .display-show {
+                display: flex;
+            }
+            .mobile-active {
+                background-color: var(--Very-Dark-Grayish-Blue);
+                border-bottom-left-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+                padding: 1rem 3rem;
+                align-items: center;
+                font-size: 1rem;
+            }
+            .mobile-active span {
+                color: var(--Light-Grayish-Blue);
+                letter-spacing: .3rem;
+                margin-right: 1rem;
+            }
+            .mobile-active>i {
+                color: #fff;
+                margin-right: 1rem;
+            }
+            .mobile-active .share {
+                background-color: var(--Desaturated-Dark-Blue);
+            }
+            .mobile-active .share i {
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <div class="card-img"> <img src="/article-preview-component-master/images/drawers.jpg" alt="drawers"></div>
+
+        <div class="card-content">
+            <h1>Shift the overall look and feel by adding these wonderful touches to furniture in your home</h1>
+            <p> Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.
+            </p>
+            <div class="author">
+                <img src="/article-preview-component-master/images/avatar-michelle.jpg" alt="avatar">
+                <div>
+                    <p class="name"> Michelle Appleton</p>
+                    <p class="date"> 28 Jun 2020 Share</p>
+                </div>
+                <div class="share">
+                    <i class="fa-solid fa-share"></i>
+                </div>
+                <div class="social-box">
+                    <span>SHARE</span><i class="fa-brands fa-facebook-square"></i><i class="fa-brands fa-twitter"></i><i class="fa-brands fa-pinterest"></i>
+                </div>
+            </div>
+
+        </div>
+        <div class="mobile-active">
+            <span>SHARE</span><i class="fa-brands fa-facebook-square"></i><i class="fa-brands fa-twitter"></i><i class="fa-brands fa-pinterest"></i>
+            <div class="share mobile-share">
+                <i class="fa-solid fa-share"></i>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">huyuehhsuan</a>.
+    </footer>
+    <script>
+        // Get the size of the device screen
+        let screenWidth = screen.width;
+
+        const share = document.querySelector(".share")
+        const socialBox = document.querySelector(".social-box")
+        const author = document.querySelector(".author")
+        const mobileActive = document.querySelector(".mobile-active")
+        const mobileShare = document.querySelector(".mobile-share")
+
+        share.addEventListener("click", function() {
+            if (screenWidth > 576) {
+                if (socialBox.className === "social-box") {
+                    socialBox.classList.add("active")
+                } else {
+                    socialBox.classList.remove("active")
+                }
+            } else {
+                if (author.className === "author") {
+                    author.classList.add("display-none")
+                    mobileActive.classList.add("display-show")
+                }
+            }
+        })
+        mobileShare.addEventListener("click", function() {
+            author.classList.remove("display-none")
+            mobileActive.classList.remove("display-show")
+        })
+    </script>
+</body>
+
+</html>
