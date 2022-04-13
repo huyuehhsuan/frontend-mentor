@@ -48,6 +48,7 @@
         const rates = document.querySelectorAll(".rate")
         const submit = document.querySelector(".submit")
         const select = document.querySelector(".select")
+        const wrap = document.querySelector(".wrap")
         rates.forEach(rate => {
             rate.addEventListener("click", function() {
                 let star = rate.innerHTML
@@ -55,10 +56,10 @@
                     rate.classList.remove("is-selected")
                 })
                 rate.classList.add("is-selected")
-
                 if (star) {
-                    console.log(star);
+                    submit.classList.add("submit-active")
                     submit.addEventListener("click", function() {
+                        wrap.classList.add("wrap-active")
                         normal.classList.add("display-none")
                         finish.classList.remove("display-none")
                         select.innerHTML = star

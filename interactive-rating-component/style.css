@@ -36,6 +36,12 @@
         padding: 30px;
     }
     
+    .wrap-active {
+        transform: rotateY(180deg);
+        transition: 0.5s all ease;
+        box-shadow: 0px 0px 10px rgba(10, 10, 0.8);
+    }
+    
     .star {
         display: flex;
         justify-content: center;
@@ -67,7 +73,16 @@
         cursor: pointer;
     }
     
-    .rate,
+    .rate {
+        width: 50px;
+        height: 50px;
+        background-color: hsl(214, 18%, 23%);
+        border-radius: 50%;
+        line-height: 50px;
+        text-align: center;
+        transition: .3s;
+    }
+    
     .star {
         width: 50px;
         height: 50px;
@@ -80,16 +95,21 @@
     .submit {
         margin-top: 1.5rem;
         width: 100%;
-        background-color: var(--Orange);
+        background-color: #ccc;
         border: none;
         color: var(--White);
         border-radius: 20px;
         padding: 14px 0;
         font-weight: 700;
         letter-spacing: 2px;
+        transition: .3s;
     }
     
-    .submit:hover {
+    .submit-active {
+        background-color: var(--Orange);
+    }
+    
+    .submit-active:hover {
         background-color: var(--White);
         color: var(--Orange);
         cursor: pointer;
@@ -104,6 +124,10 @@
         display: none;
     }
     
+    .wrap-active .finish {
+        transform: rotateY(180deg);
+    }
+    
     .finish {
         text-align: center;
     }
@@ -112,7 +136,7 @@
         color: var(--Orange);
         margin: 1.5rem auto;
         background-color: hsl(214, 18%, 23%);
-        border-radius: 25%;
+        border-radius: 15px;
         display: block;
         width: 200px;
         height: 40px;
