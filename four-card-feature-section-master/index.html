@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Four card feature section</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+         :root {
+            --Red: hsl(0, 78%, 62%);
+            --Cyan: hsl(180, 62%, 55%);
+            --Orange: hsl(34, 97%, 64%);
+            --Blue: hsl(212, 86%, 64%);
+            --Very-Dark-Blue: hsl(234, 12%, 34%);
+            --Grayish-Blue: hsl(229, 6%, 66%);
+            --Very-Light-Gray: hsl(0, 0%, 98%)
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(var(--Soft-violet), var(--Soft-blue));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 15px;
+        }
+        
+        .wrap {
+            max-width: 1200px;
+        }
+        
+        .text {
+            text-align: center;
+            max-width: 540px;
+            margin: 0 auto 3rem;
+        }
+        
+        .text h1 {
+            color: var(--Grayish-Blue);
+            font-size: 2rem;
+            font-weight: 200;
+        }
+        
+        .text h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--Very-Dark-Blue);
+            margin: .5rem 0 1rem;
+        }
+        
+        .text p {
+            color: var(--Grayish-Blue);
+        }
+        
+        .cols {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .cols>div {
+            width: 30%;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(109, 109, 109, 0.2);
+            padding: 2rem;
+            margin: 1.5rem 0;
+            height: 240px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .card .title {
+            font-weight: 600;
+            color: var(--Very-Dark-Blue);
+            font-size: 1rem;
+        }
+        
+        .card p {
+            color: var(--Grayish-Blue);
+            font-size: .8rem;
+            line-height: 2;
+        }
+        
+        .card img {
+            float: right;
+        }
+        
+        .card.supervisor::before {
+            content: "";
+            display: block;
+            height: 5px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--Cyan);
+        }
+        
+        .card.team-builder::before {
+            content: "";
+            display: block;
+            height: 5px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--Red);
+        }
+        
+        .card.karma ::before {
+            content: "";
+            display: block;
+            height: 5px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--Orange);
+        }
+        
+        .card.calculator::before {
+            content: "";
+            display: block;
+            height: 5px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--Blue);
+        }
+        
+        @media (max-width: 576px) {
+            .wrap {
+                max-width: 350px;
+            }
+            .cols {
+                flex-direction: column;
+            }
+            .cols>div {
+                width: 100%;
+            }
+            .text h1,
+            .text h2 {
+                font-size: 1.5rem;
+            }
+            .text {
+                margin: 3rem auto;
+            }
+            .text p {
+                font-size: 1.1rem;
+            }
+            .card .title {
+                font-size: 1.5rem;
+            }
+            .card.supervisor,
+            .card.calculator {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrap">
+        <div class="text">
+            <h1>Reliable, efficient delivery</h1>
+            <h2>Powered by Technology</h2>
+            <p>Our Artificial Intelligence powered tools use millions of project data points to ensure that your project is successful</p>
+        </div>
+        <div class="cols">
+            <div>
+                <div class="card supervisor">
+                    <div>
+                        <p class="title">Supervisor</p>
+                        <p>Monitors activity to identify project roadblocks</p>
+                    </div>
+                    <div> <img src="/four-card-feature-section-master/images/icon-supervisor.svg" alt="icon"></div>
+
+                </div>
+            </div>
+            <div>
+                <div class="card team-builder">
+                    <div>
+                        <p class="title">Team Builder</p>
+                        <p>Scans our talent network to create the optimal team for your project</p>
+                    </div>
+                    <div> <img src="/four-card-feature-section-master/images/icon-team-builder.svg" alt="icon"></div>
+
+                </div>
+                <div class="card karma">
+                    <div>
+                        <p class="title">Karma</p>
+                        <p>Regularly evaluates our talent to ensure quality</p>
+                    </div>
+                    <div> <img src="/four-card-feature-section-master/images/icon-karma.svg" alt="icon"></div>
+
+                </div>
+            </div>
+            <div>
+                <div class="card calculator">
+                    <div>
+                        <p class="title">Calculator</p>
+                        <p>Uses data from past projects to provide better delivery estimates</p>
+                    </div>
+                    <div> <img src="/four-card-feature-section-master/images/icon-calculator.svg" alt="icon"></div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
+        </p>
+    </footer>
+</body>
+
+</html>
