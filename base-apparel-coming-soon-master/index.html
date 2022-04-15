@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+         :root {
+            --Desaturated-Red: hsl(0, 36%, 70%);
+            --Soft-Red: hsl(0, 93%, 68%);
+            --Dark-Grayish-Red: hsl(0, 6%, 24%);
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 16px;
+        }
+        
+        .card {
+            max-width: 800px;
+            display: flex;
+        }
+        
+        .card-content {
+            background-image: url(/base-apparel-coming-soon-master/images/bg-pattern-desktop.svg);
+            padding: 1rem 3rem;
+        }
+        
+        .card-img img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <div class="card-content">
+            <img src="/base-apparel-coming-soon-master/images/logo.svg" alt="logo">
+            <h1>We're coming soon</h1>
+            <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+            <input type="text" placeholder="Email Address"><button><img src="/base-apparel-coming-soon-master/images/icon-arrow.svg" alt=""></button>
+        </div>
+        <div class="card-img"><img src="/base-apparel-coming-soon-master/images/hero-desktop.jpg" alt="img"></div>
+
+    </main>
+
+
+
+    <footer>
+        <p class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">huyuehhsuan</a>.
+        </p>
+    </footer>
+</body>
+
+</html>
