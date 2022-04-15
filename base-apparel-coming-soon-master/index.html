@@ -37,6 +37,10 @@
             text-decoration: none;
         }
         
+        img {
+            vertical-align: middle;
+        }
+        
         body {
             font-family: 'Josefin Sans', sans-serif;
             width: 100%;
@@ -49,17 +53,198 @@
         }
         
         .card {
-            max-width: 800px;
+            max-width: 900px;
+            height: auto;
             display: flex;
+            box-shadow: -10px 10px 30px rgba(98, 98, 98, 0.2);
         }
         
         .card-content {
+            width: 55%;
             background-image: url(/base-apparel-coming-soon-master/images/bg-pattern-desktop.svg);
-            padding: 1rem 3rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            padding: 3rem 5rem 3rem 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .card-content div:nth-child(2) {
+            margin-bottom: 3rem;
+        }
+        
+        .card-content>img {
+            height: 1rem
+        }
+        
+        .card-img {
+            width: 45%;
         }
         
         .card-img img {
             width: 100%;
+        }
+        
+        .card-img .desktop {
+            display: inline-block;
+        }
+        
+        .card-img .mobile {
+            display: none;
+        }
+        
+        h1 {
+            text-transform: uppercase;
+            color: var(--Desaturated-Red);
+            letter-spacing: .3rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+        
+        h1 span {
+            display: block;
+            color: black;
+            font-weight: 600;
+        }
+        
+        .card-content p {
+            color: var(--Desaturated-Red);
+            margin: 1.5rem 0;
+            font-size: .6rem;
+            line-height: 1.5;
+        }
+        
+        .form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 34px;
+            border-radius: 30px;
+            border: 1px solid hsl(0, 27%, 86%);
+            width: 85%;
+        }
+        
+        .form.active {
+            border: 2px solid var(--Soft-Red);
+        }
+        
+        input {
+            border: none;
+            padding: 0 1rem;
+            background-color: transparent;
+        }
+        
+        input:focus {
+            outline: none;
+        }
+        
+        .form button {
+            width: 70px;
+            height: 36px;
+            border-radius: 30px;
+            background: linear-gradient( 135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+            border: none;
+            box-shadow: 0px 5px 10px var(--Desaturated-Red);
+            cursor: pointer;
+            color: #fff;
+            font-size: 1rem;
+            transform: translateX(2px);
+            transition: transform .3s;
+            position: relative;
+        }
+        
+        .form.form.active button {
+            transform: translateX(30%);
+        }
+        
+        .form button:hover {
+            background: hsl(0, 80%, 86%);
+        }
+        
+        .form button>img {
+            width: .4rem;
+        }
+        
+        .form .arrow {
+            width: .4rem;
+        }
+        
+        .form .error {
+            height: 1rem;
+            align-self: center;
+            transform: translateX(150%);
+            transition: transform .3s;
+        }
+        
+        .form.active .error {
+            transform: translateX(80%);
+        }
+        
+         ::placeholder {
+            color: hsl(0, 27%, 86%);
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        
+        .error-text {
+            visibility: hidden;
+            opacity: 0;
+            color: var(--Soft-Red);
+            font-size: 12px;
+            margin: 8px 1rem 0;
+            transition: .3s;
+        }
+        
+        .error-text.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .mobile-logo {
+            display: none;
+        }
+        
+        @media (max-width: 576px) {
+            .card {
+                max-width: 350px;
+                flex-direction: column-reverse;
+            }
+            .card-content {
+                width: 100%;
+                padding: 3rem;
+            }
+            .card-content>div {
+                text-align: center;
+            }
+            .card-img {
+                width: 100%;
+            }
+            .card-img .desktop {
+                display: none;
+            }
+            .card-img .mobile {
+                display: inline-block;
+            }
+            .desk-logo {
+                display: none;
+            }
+            .form {
+                width: 100%;
+            }
+            .mobile-logo {
+                display: block;
+                margin: 1.5rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .form button>img {
+                width: .6rem;
+            }
+            input {
+                padding: 0 10px;
+            }
         }
     </style>
 </head>
@@ -67,22 +252,44 @@
 <body>
     <main class="card">
         <div class="card-content">
-            <img src="/base-apparel-coming-soon-master/images/logo.svg" alt="logo">
-            <h1>We're coming soon</h1>
-            <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
-            <input type="text" placeholder="Email Address"><button><img src="/base-apparel-coming-soon-master/images/icon-arrow.svg" alt=""></button>
+            <div class="desk-logo"> <img src="https://github.com/huyuehhsuan/frontend-mentor/raw/gh-pages/base-apparel-coming-soon-master/images/logo.svg" alt="logo"></div>
+            <div>
+                <h1>We're <span>coming</span><span>soon</span> </h1>
+                <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+                <form class="form">
+                    <input type="text" name="email" id="email" placeholder="Email Address" /><img src="https://github.com/huyuehhsuan/frontend-mentor/raw/gh-pages/base-apparel-coming-soon-master/images/icon-error.svg" class="error"> <button type="button"
+                        name="submit" value=">" onclick="processFormData();"><img src="https://github.com/huyuehhsuan/frontend-mentor/raw/gh-pages/base-apparel-coming-soon-master/images/icon-arrow.svg" alt="arrow"></button>
+                </form>
+                <span class="error-text">Please provide a valid email</span>
+            </div>
         </div>
-        <div class="card-img"><img src="/base-apparel-coming-soon-master/images/hero-desktop.jpg" alt="img"></div>
-
+        <div class="card-img"><img src="https://github.com/huyuehhsuan/frontend-mentor/raw/gh-pages/base-apparel-coming-soon-master/images/hero-desktop.jpg" alt="img" class="desktop"><img src="https://github.com/huyuehhsuan/frontend-mentor/raw/gh-pages/base-apparel-coming-soon-master/images/hero-mobile.jpg"
+                alt="img" class="mobile"></div>
+        <div class="mobile-logo"> <img src="https://github.com/huyuehhsuan/frontend-mentor/raw/gh-pages/base-apparel-coming-soon-master/images/logo.svg" alt="logo"></div>
     </main>
-
-
-
     <footer>
         <p class="attribution">
             Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">huyuehhsuan</a>.
         </p>
     </footer>
+    <script>
+        const form = document.querySelector(".form")
+        const errorText = document.querySelector(".error-text")
+
+        function processFormData() {
+            let emailEle = document.getElementById('email');
+            let email = emailEle.value.trim()
+            if (email.length > 0 && email.includes("@")) {
+                let str = ""
+                emailEle.value = str
+                form.className = "form"
+                errorText.className = "error-text"
+            } else {
+                form.classList.add("active")
+                errorText.classList.add("active")
+            }
+        }
+    </script>
 </body>
 
 </html>
