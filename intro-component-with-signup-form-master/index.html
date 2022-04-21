@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+         :root {
+            --Red: hsl(0, 100%, 74%);
+            --Green: hsl(154, 59%, 51%);
+            --Blue: hsl(248, 32%, 49%);
+            --Dark-Blue: hsl(249, 10%, 26%);
+            --Grayish-Blue: hsl(246, 25%, 77%);
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            min-height: 100vh;
+            /* background-color: rgb(255, 237, 200); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 16px;
+        }
+        
+        .card {
+            max-width: 1200px;
+            padding: 5rem 6rem;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, .3);
+            background-image: url(/intro-component-with-signup-form-master/images/bg-intro-desktop.png);
+            background-color: var(--Red);
+            display: flex;
+        }
+        
+        .card-content {
+            width: 50%;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 2rem;
+        }
+        
+        .card-content h1 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+        
+        .card-content p {
+            font-size: 14px;
+        }
+        
+        .card-form {
+            width: 50%;
+        }
+        
+        .card-form button {
+            width: 90%;
+            background-color: var(--Blue);
+            border-radius: 4px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, .3);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border: none;
+            margin-bottom: 1rem;
+        }
+        
+        .card-form .form {
+            width: 90%;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, .3);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        input {
+            width: 100%;
+            height: 2.5rem;
+            border: 1px solid var(--Grayish-Blue);
+            border-radius: 4px;
+            padding: 0 2rem;
+            transition: .3s;
+        }
+        
+        .form-item.active input {
+            border: 2px solid var(--Red);
+        }
+        
+         ::placeholder {
+            color: var(--Dark-Blue);
+            font-weight: 500;
+        }
+        
+        input:focus {
+            outline: 1px solid var( --Dark-Blue);
+        }
+        
+        .card-form .submit {
+            background-color: hsl(155, 45%, 63%);
+            color: #fff;
+            margin-bottom: .5rem;
+            text-transform: uppercase;
+            transition: .3s;
+            width: 100%;
+        }
+        
+        .card-form .submit:hover {
+            cursor: pointer;
+        }
+        
+        .card-form .submit.active {
+            background-color: var(--Green);
+        }
+        
+        .form-item {
+            position: relative;
+            height: 70px;
+        }
+        
+        .form-item img {
+            position: absolute;
+            right: 16px;
+            top: 10%;
+            opacity: 0;
+            transition: .3s;
+        }
+        
+        .form-item.active img {
+            opacity: 1;
+        }
+        
+        .card-form p {
+            font-size: 12px;
+            color: var(--Grayish-Blue);
+            transform: translate(.8);
+        }
+        
+        .form-item p span {
+            color: var(--Red);
+            font-weight: 600;
+        }
+        
+        .form-item .error {
+            display: none;
+            float: right;
+            color: var(--Red);
+            font-size: 12px;
+            margin-bottom: 1rem;
+        }
+        
+        .form-item.active .error {
+            display: block;
+        }
+        
+        .span {
+            font-weight: 700;
+            color: var(--Red);
+        }
+        
+        @media (max-width: 576px) {
+            .card {
+                max-width: 350px;
+                display: flex;
+                flex-direction: column;
+                padding: 3.5rem 1.5rem;
+                text-align: center;
+            }
+            .card-content {
+                width: 100%;
+                padding-right: 0;
+            }
+            .card-form {
+                width: 100%;
+            }
+            .card-form .form {
+                width: 100%;
+                padding: 1.5rem;
+            }
+            .card-content h1 {
+                font-size: 1.5rem;
+                margin-top: 1rem;
+            }
+            .card-content p {
+                margin-bottom: 3rem;
+            }
+            .card-form button {
+                width: 100%;
+                padding: 1rem 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <div class="card-content">
+            <h1>Learn to code by watching others</h1>
+            <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.</p>
+        </div>
+        <div class="card-form">
+            <button> <b>Try it free 7 days</b> then $20/mo. thereafter</button>
+            <div class="form">
+                <div class="form-item FirstName">
+                    <input type="text" placeholder="First Name" id="FirstName"><img src="/intro-component-with-signup-form-master/images/icon-error.svg" alt="error">
+                    <p class="error">First Name cannot be empty</p>
+                </div>
+                <div class="form-item LastName">
+                    <input type="text" placeholder="Last Name" id="LastName"><img src="/intro-component-with-signup-form-master/images/icon-error.svg" alt="error">
+                    <p class="error">Last Name cannot be empty</p>
+                </div>
+                <div class="form-item EmailAddress">
+                    <input type="text" placeholder="Email Address" id="EmailAddress"><img src="/intro-component-with-signup-form-master/images/icon-error.svg" alt="error">
+                    <p class="error">Looks like this is not a email</p>
+                </div>
+                <div class="form-item Password">
+                    <input type="password" placeholder="Password" id="Password"><img src="/intro-component-with-signup-form-master/images/icon-error.svg" alt="error">
+                    <p class="error">Password cannot be empty</p>
+                </div>
+
+                <button class="submit" onclick="send()"> Claim your free trial</button>
+                <p>By clicking the button, you are agreeing to our <span class="span">Terms and Services</span> </p>
+            </div>
+
+        </div>
+
+    </main>
+    <footer>
+        <p class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">huyuehhsuan</a>.
+        </p>
+    </footer>
+    <script>
+        const FirstName = document.querySelector("#FirstName")
+        const LastName = document.querySelector("#LastName")
+        const EmailAddress = document.querySelector("#EmailAddress")
+        const Password = document.querySelector("#Password")
+        const FirstNameForm = document.querySelector(".FirstName")
+        const LastNameForm = document.querySelector(".LastName")
+        const EmailAddressForm = document.querySelector(".EmailAddress")
+        const PasswordForm = document.querySelector(".Password")
+        const submit = document.querySelector(".submit")
+        let status = [false, false, false, false]
+
+        function send() {
+            let FirstNameInput = FirstName.value.trim();
+            let LastNameInput = LastName.value.trim();
+            let EmailAddressInput = EmailAddress.value.trim();
+            let PasswordInput = Password.value.trim();
+            if (FirstNameInput === "") {
+                FirstNameForm.classList.add("active")
+            } else {
+                status[0] = true
+                FirstNameForm.classList.remove("active")
+            }
+            if (LastNameInput === "") {
+                LastNameForm.classList.add("active")
+            } else {
+                status[1] = true
+                LastNameForm.classList.remove("active")
+            }
+            if (!EmailAddressInput.includes("@")) {
+                EmailAddressForm.classList.add("active")
+            } else {
+                status[2] = true
+                EmailAddressForm.classList.remove("active")
+            }
+            if (PasswordInput === "") {
+                PasswordForm.classList.add("active")
+            } else {
+                status[3] = true
+                PasswordForm.classList.remove("active")
+            }
+            if (status.includes(false)) {
+                console.log("undone");
+            } else {
+                submit.classList.add("active")
+                console.log("done");
+            }
+        }
+    </script>
+</body>
+
+</html>
