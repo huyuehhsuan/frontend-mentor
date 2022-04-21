@@ -278,6 +278,7 @@
             let LastNameInput = LastName.value.trim();
             let EmailAddressInput = EmailAddress.value.trim();
             let PasswordInput = Password.value.trim();
+            let valida = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
             if (FirstNameInput === "") {
                 FirstNameForm.classList.add("active")
             } else {
@@ -290,9 +291,10 @@
                 status[1] = true
                 LastNameForm.classList.remove("active")
             }
-            if (!EmailAddressInput.includes("@")) {
+            if (EmailAddressInput === "" || !EmailAddressInput.match(valida)) {
                 EmailAddressForm.classList.add("active")
             } else {
+                EmailAddressInput.match(valida)
                 status[2] = true
                 EmailAddressForm.classList.remove("active")
             }
