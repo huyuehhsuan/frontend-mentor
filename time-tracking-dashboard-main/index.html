@@ -64,13 +64,23 @@
             grid-template-columns: 25% 75%;
         }
         
-        .period {
+        .periods {
             display: grid;
             grid-gap: 20px;
             grid-template-rows: repeat(3, 1fr);
             background-color: var(--Dark-blue);
             color: var(--Pale-Blue);
             padding: 2rem;
+            transition: .3s;
+        }
+        
+        .periods .period.active {
+            color: #fff;
+        }
+        
+        .periods .period:hover {
+            color: #fff;
+            cursor: pointer;
         }
         
         .user {
@@ -110,7 +120,6 @@
         
         .card {
             border-radius: 1rem;
-            outline: 1px solid red;
             position: relative;
         }
         
@@ -130,6 +139,12 @@
             left: 0;
             padding: 2rem;
             color: #fff;
+            transition: .3s;
+        }
+        
+        .card-content:hover {
+            background-color: var(--Desaturated-blue);
+            cursor: pointer;
         }
         
         .card-content-top {
@@ -154,12 +169,39 @@
                 width: 350px;
                 grid-template-columns: 100%;
             }
-            .period {
+            .periods {
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: unset;
             }
+            .user-info {
+                display: flex;
+                align-items: center;
+            }
+            .avatar {
+                width: 80px;
+                margin-bottom: 0;
+                margin-right: 1rem;
+            }
+            .user-info h1 {
+                margin-bottom: 0;
+                font-size: 1.5rem;
+            }
             .content {
-                grid-template-columns: 100%;
+                grid-template-columns: unset;
+            }
+            .card {
+                height: 180px;
+            }
+            .card-content {
+                padding-bottom: 0;
+            }
+            .card-content .hrs {
+                margin: .5rem 0;
+            }
+            .card-content-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
             }
         }
     </style>
@@ -169,33 +211,21 @@
     <main class="wrap">
         <div class="user">
             <div class="user-info">
-                <img src="/time-tracking-dashboard-main/images/image-jeremy.png" alt="jeremy" class="avatar">
-                <p>Report for</p>
-                <h1>Jeremy Robson</h1>
+                <img src="https://github.com/huyuehhsuan/frontend-mentor/raw/gh-pages/time-tracking-dashboard-main/images/image-jeremy.png" alt="jeremy" class="avatar">
+                <div>
+                    <p>Report for</p>
+                    <h1>Jeremy Robson</h1>
+                </div>
+
             </div>
-            <div class="period">
-                <div class="daily">Daily</div>
-                <div class="weekly">Weekly</div>
-                <div class="monthly">Monthly</div>
+            <div class="periods">
+                <div class="period active">Daily</div>
+                <div class="period">Weekly</div>
+                <div class="period">Monthly</div>
             </div>
         </div>
         <div class="content">
-            <div class="card" style="background-color: var(--Light-red-work);">
-                <img src="/time-tracking-dashboard-main/images/icon-work.svg" alt="icon-work" class="card-icon">
-                <div class="card-content">
-                    <div class="card-content-top">
-                        <p class="work">Work</p>
-                        <img src="/time-tracking-dashboard-main/images/icon-ellipsis.svg" alt="ellipsis" class="ellipsis"></div>
 
-                    <p class="hrs">32hrs</p>
-                    <p class="last">Last Week - 36hrs</p>
-                </div>
-            </div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
         </div>
     </main>
 
@@ -203,6 +233,10 @@
     <footer class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">huyuehhsuan</a>.
     </footer>
+
+    <script src="main.js"></script>
+
+
 </body>
 
 </html>
