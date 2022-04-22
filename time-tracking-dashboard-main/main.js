@@ -54,7 +54,6 @@ function createDomElement(resdata) {
     let domElements = ""
     dataList.forEach((i, index) => {
         const result = resdata.map(data => data.timeframes.daily)
-        console.log(result);
         domElements += `<div class="card" style="background-color: ${i.bgcolor};">
                 <img src="https://github.com/huyuehhsuan/frontend-mentor/raw/gh-pages/time-tracking-dashboard-main/images/icon-${i.title.charAt(0).toLowerCase()+i.title.slice(1)}.svg" alt="icon-work" class="card-icon">
                 <div class="card-content">

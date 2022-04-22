@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+         :root {
+            --Very-dark-cyan: hsl(183, 100%, 15%);
+            --Dark-grayish-cyan: hsl(186, 14%, 43%);
+            --Grayishcyan: hsl(184, 14%, 56%);
+            --Light-grayish-cyan: hsl(185, 41%, 84%);
+            --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+            --White: hsl(0, 0%, 100%);
+            --Lime-green: hsl(170, 58%, 55%);
+            --Light-red: hsl(348, 100%, 68%);
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: var(--Light-grayish-cyan);
+        }
+        
+        .wrap {
+            max-width: 800px;
+            border-radius: 1rem;
+            background-color: var(--White);
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 5px 5px 30px rgba(0, 0, 0, .2);
+        }
+        
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        input {
+            width: 100%;
+            border-radius: 4px;
+        }
+        
+        input:hover {
+            cursor: pointer;
+        }
+        
+        input:focus {
+            outline: 2px solid var(--Lime-green);
+        }
+        
+        .in {
+            padding: 1rem 2rem;
+            color: var(--Very-dark-cyan);
+        }
+        
+        .icon {
+            position: absolute;
+            top: 60%;
+            left: 5px;
+        }
+        
+        .in input {
+            height: 2.5rem;
+            background-color: var(--Very-light-grayish-cyan);
+            border: none;
+            padding: 0 20px;
+            color: var(--Very-dark-cyan);
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            text-align: right;
+        }
+        
+        .bill {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .select {
+            margin-bottom: 2rem;
+        }
+        
+        .select>p {
+            margin-bottom: .5rem;
+        }
+        
+        .nums {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .num {
+            background-color: var(--Very-dark-cyan);
+            border-radius: 4px;
+            color: var(--White);
+            text-align: center;
+            padding: .5rem 0;
+            transition: .3s;
+        }
+        
+        .num:hover {
+            background-color: var(--Lime-green);
+            cursor: pointer;
+        }
+        
+        .num.active {
+            background-color: var(--Lime-green);
+        }
+        
+         ::placeholder {
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            color: var(--Very-dark-cyan);
+            float: right;
+            line-height: 2.5rem;
+            padding-right: 5px;
+        }
+        
+        .num::placeholder {
+            float: unset;
+            padding-right: 0;
+        }
+        
+        .in .costom-input {
+            padding-left: 0;
+        }
+        
+        .in .costom-input:focus {
+            background-color: var(--Very-light-grayish-cyan);
+        }
+        
+        .people {
+            position: relative;
+        }
+        
+        .people span {
+            color: var(--Light-red);
+            font-size: 12px;
+            display: block;
+            float: right;
+            opacity: 0;
+            transition: .3s;
+        }
+        
+        .people.active input {
+            outline: 2px solid var(--Light-red);
+        }
+        
+        .people.active span {
+            opacity: 1;
+        }
+        
+        .out {
+            background-color: var(--Very-dark-cyan);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .tip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .out .num {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--Lime-green);
+        }
+        
+        .out p {
+            color: var(--White);
+            font-size: 14px;
+        }
+        
+        .out span {
+            font-size: 12px;
+            color: var(--Light-grayish-cyan);
+        }
+        
+        button {
+            border-radius: 4px;
+            background-color: var(--Dark-grayish-cyan);
+            border: none;
+            padding: .8rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--Very-dark-cyan);
+            transition: .3s;
+        }
+        
+        button:hover {
+            cursor: pointer;
+            background-color: var(--Lime-green);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrap">
+        <div class="in">
+            <div class="bill">
+                <label for="bill"> Bill</label>
+                <img src="/tip-calculator-app-main/images/icon-dollar.svg" alt="dollar" class="icon"><input type="text" id="bill" dir="rtl" placeholder="0">
+            </div>
+            <div class="select">
+                <p> Select Tip %</p>
+                <div class="nums">
+                    <div class="num">5%</div>
+                    <div class="num">10%</div>
+                    <div class="num">15%</div>
+                    <div class="num">25%</div>
+                    <div class="num">50%</div>
+                    <input type="text" class="num costom-input" placeholder="Costom" dir="rtl">
+                </div>
+            </div>
+            <div class="people">
+                <label for="people">  Number of People</label><span>Can't be zero</span>
+                <img src="/tip-calculator-app-main/images/icon-person.svg" alt="person" class="icon"><input type="text" id="people" dir="rtl" placeholder="0">
+            </div>
+        </div>
+
+
+        </div>
+        <div class="out">
+            <div>
+                <div class="tip">
+                    <p> Tip Amount <br><span>/person</span></p>
+                    <div class="num">$0.00</div>
+                </div>
+                <div class="total">
+                    <p> person Total <br><span>/person</span></p>
+                    <div class="num">$0.00</div>
+                </div>
+            </div>
+
+            <button>Reset</button>
+
+        </div>
+
+    </main>
+
+
+    <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">huyuehhsuan</a>.
+    </footer>
+</body>
+
+</html>
